@@ -251,18 +251,7 @@ function pitch(){
   ctx.fillRect(W*.965,H*.40,W*.035,H*.20);
 }
 
- ctx.strokeStyle='#eaffef';ctx.lineWidth=2;
- ctx.strokeRect(W*.035,H*.06,W*.93,H*.88);
- ctx.beginPath();ctx.moveTo(W/2,H*.06);ctx.lineTo(W/2,H*.94);ctx.stroke();
- ctx.beginPath();ctx.arc(W/2,H/2,H*.14,0,Math.PI*2);ctx.stroke();
- ctx.strokeRect(W*.035,H*.29,W*.15,H*.42);
- ctx.strokeRect(W*.815,H*.29,W*.15,H*.42);
- ctx.strokeRect(W*.035,H*.39,W*.06,H*.22);
- ctx.strokeRect(W*.905,H*.39,W*.06,H*.22);
- ctx.fillStyle='white';
- ctx.fillRect(0,H*.40,W*.035,H*.20);
- ctx.fillRect(W*.965,H*.40,W*.035,H*.20);
-}
+ 
 
 function drawPlayer(p,t){
  const s=clamp(Math.min(W,H)*.028,9,17);
