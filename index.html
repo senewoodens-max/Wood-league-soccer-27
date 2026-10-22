@@ -233,6 +233,42 @@ function tick(t){
 
 draw();
 requestAnimationFrame(tick);
+ 
+@media (orientation: landscape) {
+  #gameScreen {
+    max-width: 100%;
+    padding: 4px;
+  }
+
+  #game {
+    width: auto;
+    height: 58vh;
+    max-width: 100%;
+  }
+
+  .score {
+    padding: 3px;
+  }
+
+  #message {
+    min-height: 24px;
+    padding: 3px;
+  }
+
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 4px;
+  }
+
+  .controls button {
+    width: auto;
+    min-width: 58px;
+    padding: 10px;
+  }
+}
+
 </script>
 </body>
 </html>
