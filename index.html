@@ -182,12 +182,75 @@ $('back').onclick=()=>{
  try{if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});}catch(e){}
 };
 
+
 function pitch(){
- ctx.fillStyle='#08783a';ctx.fillRect(0,0,W,H);
- for(let i=0;i<10;i++){
-  ctx.fillStyle=i%2?'#08783a':'#0a8040';
-  ctx.fillRect(i*W/10,0,W/10,H);
- }
+  // Fond du stade
+  ctx.fillStyle='#101827';
+  ctx.fillRect(0,0,W,H);
+
+  // Tribunes du haut et du bas
+  for(let y of [0,H*.945]){
+    ctx.fillStyle='#26364b';
+    ctx.fillRect(0,y,W,H*.055);
+
+    for(let x=5;x<W;x+=13){
+      ctx.fillStyle=['#ff3030','#ffd21f','#ffffff','#277cff','#37d67a'][Math.floor(x/13)%5];
+      ctx.beginPath();
+      ctx.arc(x,y+H*.027,2.5,0,Math.PI*2);
+      ctx.fill();
+    }
+  }
+
+  // Tribunes sur les côtés
+  ctx.fillStyle='#26364b';
+  ctx.fillRect(0,0,W*.03,H);
+  ctx.fillRect(W*.97,0,W*.03,H);
+
+  // Projecteurs
+  for(let x of [W*.02,W*.98]){
+    ctx.fillStyle='#fff8c7';
+    ctx.shadowColor='#fff2a0';
+    ctx.shadowBlur=18;
+    ctx.beginPath();
+    ctx.arc(x,H*.08,5,0,Math.PI*2);
+    ctx.fill();
+  }
+  ctx.shadowBlur=0;
+
+  // Pelouse avec bandes
+  ctx.fillStyle='#08783a';
+  ctx.fillRect(W*.035,H*.06,W*.93,H*.88);
+
+  for(let i=0;i<10;i++){
+    ctx.fillStyle=i%2?'#08783a':'#0a8040';
+    ctx.fillRect(W*.035+i*W*.093,H*.06,W*.093,H*.88);
+  }
+
+  // Lignes blanches du terrain
+  ctx.strokeStyle='#eaffef';
+  ctx.lineWidth=2;
+  ctx.strokeRect(W*.035,H*.06,W*.93,H*.88);
+
+  ctx.beginPath();
+  ctx.moveTo(W/2,H*.06);
+  ctx.lineTo(W/2,H*.94);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.arc(W/2,H/2,H*.14,0,Math.PI*2);
+  ctx.stroke();
+
+  ctx.strokeRect(W*.035,H*.29,W*.15,H*.42);
+  ctx.strokeRect(W*.815,H*.29,W*.15,H*.42);
+  ctx.strokeRect(W*.035,H*.39,W*.06,H*.22);
+  ctx.strokeRect(W*.905,H*.39,W*.06,H*.22);
+
+  // Buts
+  ctx.fillStyle='#ffffff';
+  ctx.fillRect(0,H*.40,W*.035,H*.20);
+  ctx.fillRect(W*.965,H*.40,W*.035,H*.20);
+}
+
  ctx.strokeStyle='#eaffef';ctx.lineWidth=2;
  ctx.strokeRect(W*.035,H*.06,W*.93,H*.88);
  ctx.beginPath();ctx.moveTo(W/2,H*.06);ctx.lineTo(W/2,H*.94);ctx.stroke();
