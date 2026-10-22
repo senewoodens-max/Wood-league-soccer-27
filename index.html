@@ -275,3 +275,20 @@ requestAnimationFrame(tick);
 if (screen.orientation && screen.orientation.lock) {
   screen.orientation.lock("landscape").catch(() => {});
 }
+
+async function startGame(){
+  document.getElementById('homeScreen').style.display='none';
+  document.getElementById('gameScreen').style.display='block';
+  restart();
+
+  try {
+    if (document.documentElement.requestFullscreen) {
+      await document.documentElement.requestFullscreen();
+    }
+    if (screen.orientation && screen.orientation.lock) {
+      await screen.orientation.lock('landscape');
+    }
+  } catch (e) {
+    console.log('Rotation automatique non disponible');
+  }
+}
