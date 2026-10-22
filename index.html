@@ -155,7 +155,7 @@ function reset(){
 function start(){
  $('menu').style.display='none';
  $('game').style.display='block';
- $('teamname').textContent=team.toUpperCase();
+ $('teamname').textContent=team.toUpperCase();$('modename').textContent=mode==='training'?'ENTRAÎNEMENT':mode==='challenge'?'DÉFI 3 BUTS':mode==='penalty'?'DÉFI DE TIR':'MATCH RAPIDE';
  active=true;paused=false;seconds=0;goals=[0,0];
  $('score').textContent='0 - 0';
  $('pause').textContent='Ⅱ';
