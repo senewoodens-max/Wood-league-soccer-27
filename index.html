@@ -272,3 +272,6 @@ requestAnimationFrame(tick);
 </script>
 </body>
 </html>
+if (screen.orientation && screen.orientation.lock) {
+  screen.orientation.lock("landscape").catch(() => {});
+}
